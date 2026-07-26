@@ -54,10 +54,10 @@ export default async function ArticleDetailPage({
       </div>
 
       <Container className="-mt-16 max-w-3xl">
-        <div className="rounded-2xl bg-white p-6 shadow-[0_2px_20px_-6px_rgba(28,60,45,0.15)] sm:p-10">
+        <div className="rounded-[2px] border border-[var(--hairline)] bg-parish-800 p-6 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.7)] sm:p-10">
           <Link
             href="/artikel"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-parish-600 hover:text-parish-700"
+            className="inline-flex items-center gap-1.5 text-sm text-parish-200 transition-colors hover:text-gold-400"
           >
             <ArrowLeft size={16} />
             Kembali ke Artikel
@@ -67,32 +67,32 @@ export default async function ArticleDetailPage({
             {article.category && <Badge>{article.category.name}</Badge>}
           </div>
 
-          <h1 className="mt-4 font-display text-3xl leading-tight text-parish-900 sm:text-4xl">
+          <h1 className="mt-4 font-display text-3xl leading-tight text-parish-50 sm:text-4xl">
             {article.title}
           </h1>
-          <p className="mt-3 text-sm font-medium uppercase tracking-wide text-parish-500">
+          <p className="mt-3 text-sm font-medium uppercase tracking-wide text-parish-300">
             {formatDate(article.published_at)}
             {article.author && ` · ${article.author}`}
           </p>
 
           <RichTextContent
             html={article.content}
-            className="mt-8 text-base text-parish-800/90"
+            className="mt-8 text-base text-parish-100"
           />
 
           {images.length > 0 && (
-            <div className="mt-10 border-t border-parish-100 pt-8">
+            <div className="mt-10 border-t border-[var(--hairline)] pt-8">
               <Gallery images={images} />
             </div>
           )}
 
           {article.attachment_url && (
-            <div className="mt-8 border-t border-parish-100 pt-8">
+            <div className="mt-8 border-t border-[var(--hairline)] pt-8">
               <a
                 href={article.attachment_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium text-parish-600 hover:text-parish-700"
+                className="inline-flex items-center gap-2 text-sm text-gold-400 transition-colors hover:text-gold-500"
               >
                 <Paperclip size={16} />
                 Lihat lampiran di Google Drive

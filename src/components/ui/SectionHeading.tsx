@@ -1,29 +1,42 @@
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/ui/Reveal";
 
+/**
+ * .section-head pada docs/paroki-template.html — eyebrow mono berspasi
+ * lebar di atas judul serif. Judul memakai reveal `down`, setara
+ * initial={{ opacity:0, y:-20 }} di template.
+ */
 export function SectionHeading({
   eyebrow,
   title,
   description,
   className,
+  center = false,
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   className?: string;
+  center?: boolean;
 }) {
   return (
-    <div className={cn("max-w-2xl", className)}>
+    <Reveal
+      direction="down"
+      className={cn("max-w-2xl", center && "mx-auto text-center", className)}
+    >
       {eyebrow && (
-        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-gold-600">
+        <span className="mb-3.5 block font-mono text-[11px] uppercase tracking-[0.14em] text-gold-500">
           {eyebrow}
-        </p>
+        </span>
       )}
-      <h2 className="font-display text-3xl font-medium text-parish-900 sm:text-4xl">
+      <h2 className="font-display text-[clamp(28px,3.4vw,42px)] font-semibold leading-[1.1] tracking-[-0.01em] text-parish-50">
         {title}
       </h2>
       {description && (
-        <p className="mt-3 text-base text-parish-700/80">{description}</p>
+        <p className="mt-4 text-[15.5px] leading-relaxed text-parish-200">
+          {description}
+        </p>
       )}
-    </div>
+    </Reveal>
   );
 }

@@ -21,17 +21,17 @@ export default async function SejarahPage() {
         description="Perjalanan Paroki Yohanes Gabriel Perboyre dari masa ke masa."
       />
 
-      <div className="mt-10 max-w-3xl space-y-8 border-l-2 border-parish-100 pl-8">
+      <div className="mt-10 max-w-3xl space-y-8 border-l-2 border-[var(--hairline)] pl-8">
         {history.map((h) => (
           <div key={h.id} className="relative">
             <span className="absolute -left-[2.35rem] top-1.5 h-3 w-3 rounded-full bg-parish-600" />
-            <p className="font-display text-2xl text-parish-900">{h.year}</p>
-            <p className="mt-0.5 text-sm font-semibold uppercase tracking-wide text-gold-600">
+            <p className="font-display text-2xl text-parish-50">{h.year}</p>
+            <p className="mt-0.5 text-sm font-semibold uppercase tracking-wide text-gold-500">
               {h.category}
             </p>
             <RichTextContent
               html={h.content}
-              className="mt-3 text-sm text-parish-800/90"
+              className="mt-3 text-sm text-parish-100"
             />
           </div>
         ))}

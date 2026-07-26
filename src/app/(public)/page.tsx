@@ -1,4 +1,6 @@
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/ui/Reveal";
+import { RosetteDivider } from "@/components/ui/Ornaments";
 import { HeroSlider } from "@/components/home/HeroSlider";
 import { MassScheduleSection } from "@/components/home/MassScheduleSection";
 import { LatestArticlesSection } from "@/components/home/LatestArticlesSection";
@@ -18,24 +20,32 @@ export default async function HomePage() {
   const [slides, schedules, articles, announcements, liturgicalDay] = await Promise.all([
     getHeroSlides(),
     getAllMassSchedules(),
-    getLatestArticles(6),
+    getLatestArticles(3),
     getLatestAnnouncements(3),
     getEffectiveToday(),
   ]);
 
   return (
-    <div className="pb-24">
+    <div>
       <HeroSlider slides={slides} />
 
-      <Container className="mt-10 space-y-20">
+      {/* Jadwal misa jadi pita terang tepat di bawah hero — prioritas utama
+          pengunjung, sesuai seksi .misa pada template. */}
+      <MassScheduleSection schedules={schedules} />
+
+      <Container className="space-y-24 py-24">
         {liturgicalDay && (
-          <div className="mx-auto max-w-md">
+          <Reveal className="mx-auto max-w-md" direction="scale">
             <LiturgicalTodayCard day={liturgicalDay} />
-          </div>
+          </Reveal>
         )}
 
-        <MassScheduleSection schedules={schedules} />
         <AnnouncementSection announcements={announcements} />
+      </Container>
+
+      <RosetteDivider />
+
+      <Container className="pb-24">
         <LatestArticlesSection articles={articles} />
       </Container>
     </div>

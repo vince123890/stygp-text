@@ -15,7 +15,7 @@ export function LiturgicalDateBadge({
 
   return (
     <div
-      className={`flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-xl ${styles.solid}`}
+      className={`flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-[2px] ${styles.solid}`}
     >
       <span className={`font-display text-xl font-semibold leading-none ${styles.solidText}`}>
         {day}

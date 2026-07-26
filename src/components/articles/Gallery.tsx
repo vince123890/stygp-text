@@ -6,12 +6,12 @@ export function Gallery({ images }: { images: ArticleImage[] }) {
 
   return (
     <div>
-      <h2 className="font-display text-xl text-parish-900">Galeri Foto</h2>
+      <h2 className="font-display text-xl text-parish-50">Galeri Foto</h2>
       <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
         {images.map((img) => (
           <figure
             key={img.id}
-            className="relative aspect-square overflow-hidden rounded-xl bg-parish-100"
+            className="relative aspect-square overflow-hidden rounded-[2px] bg-parish-800"
           >
             <Image
               src={img.image_url}

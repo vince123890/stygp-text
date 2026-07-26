@@ -14,10 +14,10 @@ export function CategoryFilter({
       <Link
         href="/artikel"
         className={cn(
-          "rounded-full border px-4 py-1.5 text-sm font-medium transition-colors",
+          "rounded-[2px] border px-4 py-1.5 text-[13px] transition-colors",
           !activeSlug
-            ? "border-parish-600 bg-parish-600 text-white"
-            : "border-parish-200 text-parish-700 hover:bg-parish-50"
+            ? "border-gold-500 bg-gold-500 text-parish-900"
+            : "border-[var(--hairline-strong)] text-parish-200 hover:border-gold-400 hover:text-gold-400"
         )}
       >
         Semua
@@ -27,10 +27,10 @@ export function CategoryFilter({
           key={cat.id}
           href={`/artikel?category=${cat.slug}`}
           className={cn(
-            "rounded-full border px-4 py-1.5 text-sm font-medium transition-colors",
+            "rounded-[2px] border px-4 py-1.5 text-[13px] transition-colors",
             activeSlug === cat.slug
-              ? "border-parish-600 bg-parish-600 text-white"
-              : "border-parish-200 text-parish-700 hover:bg-parish-50"
+              ? "border-gold-500 bg-gold-500 text-parish-900"
+              : "border-[var(--hairline-strong)] text-parish-200 hover:border-gold-400 hover:text-gold-400"
           )}
         >
           {cat.name}

@@ -4,20 +4,22 @@ import { cn } from "@/lib/utils";
 type Variant = "primary" | "secondary" | "outline" | "ghost";
 type Size = "sm" | "md" | "lg";
 
+/* Mengikuti .btn pada docs/paroki-template.html: sudut nyaris siku
+   (radius 2px), wine untuk aksi utama, garis kuningan untuk sekunder. */
 const variantClasses: Record<Variant, string> = {
-  primary:
-    "bg-parish-600 text-white hover:bg-parish-700 shadow-sm shadow-parish-600/20",
+  primary: "border-transparent bg-wine-600 text-parish-50 hover:bg-wine-500",
   secondary:
-    "bg-gold-500 text-white hover:bg-gold-600 shadow-sm shadow-gold-500/20",
+    "border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-parish-900",
   outline:
-    "border border-parish-200 text-parish-700 hover:bg-parish-50 bg-white",
-  ghost: "text-parish-700 hover:bg-parish-50",
+    "border-[rgba(237,230,214,0.35)] text-parish-50 hover:border-gold-400 hover:text-gold-400",
+  ghost:
+    "border-transparent text-parish-200 hover:bg-white/5 hover:text-gold-400",
 };
 
 const sizeClasses: Record<Size, string> = {
-  sm: "px-3 py-1.5 text-sm rounded-full",
-  md: "px-5 py-2.5 text-sm rounded-full",
-  lg: "px-7 py-3.5 text-base rounded-full",
+  sm: "px-4 py-2 text-[13px]",
+  md: "px-6 py-3 text-sm",
+  lg: "px-7 py-3.5 text-base",
 };
 
 interface ButtonProps {
@@ -40,7 +42,7 @@ export function Button({
   type = "button",
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 font-medium transition-colors duration-200",
+    "inline-flex items-center justify-center gap-2 rounded-[2px] border font-medium tracking-[0.02em] transition-all duration-200",
     variantClasses[variant],
     sizeClasses[size],
     className

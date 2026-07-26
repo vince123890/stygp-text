@@ -30,20 +30,20 @@ export default async function KaryaSosialPage() {
           const Icon = ICONS[m.icon ?? "Heart"] ?? Heart;
           return (
             <Card key={m.id} className="p-6">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-parish-50 text-parish-600">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--hairline-strong)] bg-gold-500/10 text-gold-400">
                 <Icon size={20} />
               </span>
-              <h3 className="mt-4 font-display text-lg text-parish-900">{m.name}</h3>
+              <h3 className="mt-4 font-display text-lg text-parish-50">{m.name}</h3>
               {m.description && (
                 <RichTextContent
                   html={m.description}
-                  className="mt-2 text-sm text-parish-800/90"
+                  className="mt-2 text-sm text-parish-100"
                 />
               )}
               {m.activities && (
                 <RichTextContent
                   html={m.activities}
-                  className="mt-4 border-t border-parish-100 pt-4 text-sm text-parish-700/80"
+                  className="mt-4 border-t border-[var(--hairline)] pt-4 text-sm text-parish-200"
                 />
               )}
             </Card>

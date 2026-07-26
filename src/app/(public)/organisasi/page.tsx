@@ -27,16 +27,16 @@ export default async function OrganisasiPage() {
 
       <div className="mt-10 grid gap-8 lg:grid-cols-2">
         <Card className="p-6">
-          <h2 className="font-display text-xl text-parish-900">BGKP</h2>
-          <p className="mt-1 text-sm text-parish-700/70">Badan Gereja Katolik Paroki</p>
+          <h2 className="font-display text-xl text-parish-50">BGKP</h2>
+          <p className="mt-1 text-sm text-parish-200">Badan Gereja Katolik Paroki</p>
           <div className="mt-5">
             <OrganizationTree members={bgks} />
           </div>
         </Card>
 
         <Card className="p-6">
-          <h2 className="font-display text-xl text-parish-900">DPP</h2>
-          <p className="mt-1 text-sm text-parish-700/70">Dewan Pastoral Paroki</p>
+          <h2 className="font-display text-xl text-parish-50">DPP</h2>
+          <p className="mt-1 text-sm text-parish-200">Dewan Pastoral Paroki</p>
           <div className="mt-5">
             <OrganizationTree members={dps} />
           </div>

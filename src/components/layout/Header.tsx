@@ -52,21 +52,23 @@ function DesktopDropdown({ label, items }: { label: string; items: NavItem[] }) 
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      <button className="flex items-center gap-1 text-sm font-medium text-parish-800/80 transition-colors hover:text-parish-700">
+      <button className="flex items-center gap-1 py-1 text-sm text-parish-200 transition-colors hover:text-gold-400">
         {label}
         <ChevronDown size={14} />
       </button>
       <div
         className={cn(
-          "absolute left-1/2 top-full grid w-56 -translate-x-1/2 grid-cols-1 gap-0.5 rounded-xl border border-parish-100 bg-white p-2 shadow-lg transition-all",
-          open ? "visible opacity-100" : "invisible opacity-0"
+          "absolute left-1/2 top-full grid w-56 -translate-x-1/2 grid-cols-1 gap-0.5 rounded-[2px] border border-[var(--hairline-strong)] bg-parish-800 p-2 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.6)] transition-all duration-200",
+          open
+            ? "visible translate-y-0 opacity-100"
+            : "invisible -translate-y-1 opacity-0"
         )}
       >
         {items.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="rounded-lg px-3 py-2 text-sm text-parish-800 hover:bg-parish-50"
+            className="rounded-[2px] px-3 py-2 text-sm text-parish-100 transition-colors hover:bg-white/5 hover:text-gold-400"
           >
             {item.label}
           </Link>
@@ -80,18 +82,18 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-parish-100/80 bg-cream-50/90 backdrop-blur">
+    <header className="sticky top-0 z-50 bg-gradient-to-b from-parish-900/95 via-parish-900/85 to-parish-900/60 backdrop-blur-md">
       <Container className="flex h-20 items-center justify-between gap-4">
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-2.5 font-display text-lg text-parish-900"
+          className="flex shrink-0 items-center gap-2.5 font-display text-lg font-semibold text-parish-50"
         >
           <Image
             src="/logo.png"
             alt="Logo Paroki Yohanes Gabriel Perboyre"
             width={56}
             height={56}
-            className="h-14 w-14 object-contain"
+            className="h-12 w-12 object-contain"
           />
           <span className="whitespace-nowrap">Paroki YGP</span>
         </Link>
@@ -104,7 +106,7 @@ export function Header() {
               <Link
                 key={entry.href}
                 href={entry.href}
-                className="text-sm font-medium text-parish-800/80 transition-colors hover:text-parish-700"
+                className="py-1 text-sm text-parish-200 transition-colors hover:text-gold-400"
               >
                 {entry.label}
               </Link>
@@ -113,13 +115,13 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="/jadwal-misa" size="sm">
+          <Button href="/jadwal-misa" variant="secondary" size="sm">
             Lihat Jadwal Misa
           </Button>
         </div>
 
         <button
-          className="flex h-9 w-9 items-center justify-center rounded-full text-parish-800 md:hidden"
+          className="flex h-9 w-9 items-center justify-center rounded-[2px] text-parish-50 md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Buka menu"
         >
@@ -129,7 +131,7 @@ export function Header() {
 
       <div
         className={cn(
-          "overflow-y-auto overflow-x-hidden border-t border-parish-100 bg-cream-50 md:hidden transition-[max-height] duration-300",
+          "overflow-y-auto overflow-x-hidden border-t border-[var(--hairline)] bg-parish-800 transition-[max-height] duration-300 md:hidden",
           open ? "max-h-[80vh]" : "max-h-0 border-t-0"
         )}
       >
@@ -137,7 +139,7 @@ export function Header() {
           {NAV.map((entry) =>
             "items" in entry ? (
               <div key={entry.label} className="py-1">
-                <p className="px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-gold-600">
+                <p className="px-3 pb-1 font-mono text-[11px] uppercase tracking-[0.14em] text-gold-500">
                   {entry.label}
                 </p>
                 {entry.items.map((item) => (
@@ -145,7 +147,7 @@ export function Header() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-2.5 text-sm font-medium text-parish-800 hover:bg-parish-50"
+                    className="block rounded-[2px] px-3 py-2.5 text-sm text-parish-100 transition-colors hover:bg-white/5 hover:text-gold-400"
                   >
                     {item.label}
                   </Link>
@@ -156,7 +158,7 @@ export function Header() {
                 key={entry.href}
                 href={entry.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-parish-800 hover:bg-parish-50"
+                className="rounded-[2px] px-3 py-2.5 text-sm text-parish-100 transition-colors hover:bg-white/5 hover:text-gold-400"
               >
                 {entry.label}
               </Link>

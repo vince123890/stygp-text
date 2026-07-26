@@ -34,21 +34,21 @@ export default async function FormulirPage() {
             className="group block"
           >
             <Card className="flex items-start gap-4 p-5">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-parish-50 text-parish-600">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--hairline-strong)] bg-gold-500/10 text-gold-400">
                 <FileText size={20} />
               </span>
               <div className="flex-1">
                 <Badge>{f.category}</Badge>
-                <h3 className="mt-2 font-display text-base text-parish-900 group-hover:text-parish-700">
+                <h3 className="mt-2 font-display text-base text-parish-50 group-hover:text-parish-200">
                   {f.name}
                 </h3>
                 {f.description && (
                   <RichTextContent
                     html={f.description}
-                    className="mt-1 text-sm text-parish-700/75"
+                    className="mt-1 text-sm text-parish-200"
                   />
                 )}
-                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-parish-600">
+                <span className="mt-3 inline-flex items-center gap-1.5 text-sm text-gold-400">
                   Buka di Google Drive
                   <ExternalLink size={13} />
                 </span>

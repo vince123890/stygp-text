@@ -32,17 +32,17 @@ export default async function PengumumanPage() {
               <div className="flex flex-wrap items-center gap-2">
                 <Badge>{a.category}</Badge>
                 {a.is_priority && (
-                  <span className="flex items-center gap-1 text-xs font-semibold text-gold-600">
+                  <span className="flex items-center gap-1 text-xs font-semibold text-gold-500">
                     <Megaphone size={12} />
                     Penting
                   </span>
                 )}
-                <span className="ml-auto text-xs font-medium uppercase tracking-wide text-parish-500">
+                <span className="ml-auto text-xs font-medium uppercase tracking-wide text-parish-300">
                   {formatDate(a.published_at)}
                 </span>
               </div>
-              <h3 className="mt-2 font-display text-lg text-parish-900">{a.title}</h3>
-              <p className="mt-1 line-clamp-2 text-sm text-parish-700/75">
+              <h3 className="mt-2 font-display text-lg text-parish-50">{a.title}</h3>
+              <p className="mt-1 line-clamp-2 text-sm text-parish-200">
                 {stripHtmlExcerpt(a.content)}
               </p>
             </Card>

@@ -42,7 +42,7 @@ export default async function ArtikelPage({
       </div>
 
       {articles.length === 0 ? (
-        <p className="mt-16 text-center text-parish-700/70">
+        <p className="mt-16 text-center text-parish-200">
           Belum ada artikel untuk kategori ini.
         </p>
       ) : (

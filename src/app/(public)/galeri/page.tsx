@@ -27,13 +27,13 @@ export default async function GaleriPage() {
         {galleries.map((g) => (
           <Card key={g.id} className="p-6">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <h3 className="font-display text-lg text-parish-900">{g.title}</h3>
+              <h3 className="font-display text-lg text-parish-50">{g.title}</h3>
               {g.google_photo_url && (
                 <a
                   href={g.google_photo_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-sm font-medium text-parish-600 hover:text-parish-700"
+                  className="flex items-center gap-1.5 text-sm text-gold-400 transition-colors hover:text-gold-500"
                 >
                   Lihat album lengkap
                   <ExternalLink size={13} />
@@ -42,7 +42,7 @@ export default async function GaleriPage() {
             </div>
             <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {(g.images ?? []).map((img) => (
-                <div key={img.id} className="relative aspect-square overflow-hidden rounded-xl">
+                <div key={img.id} className="relative aspect-square overflow-hidden rounded-[2px]">
                   <Image
                     src={img.image_url}
                     alt={img.caption ?? g.title}

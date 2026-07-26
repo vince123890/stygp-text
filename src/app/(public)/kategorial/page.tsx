@@ -25,12 +25,12 @@ export default async function KategorialPage() {
       <div className="mt-10 grid gap-6 sm:grid-cols-2">
         {groups.map((g) => (
           <Card key={g.id} className="p-6">
-            <h3 className="font-display text-lg text-parish-900">{g.name}</h3>
+            <h3 className="font-display text-lg text-parish-50">{g.name}</h3>
             <RichTextContent
               html={g.content}
-              className="mt-3 text-sm text-parish-800/90"
+              className="mt-3 text-sm text-parish-100"
             />
-            <div className="mt-4 space-y-1 border-t border-parish-100 pt-4 text-sm text-parish-700/80">
+            <div className="mt-4 space-y-1 border-t border-[var(--hairline)] pt-4 text-sm text-parish-200">
               {g.schedule && <p>Jadwal: {g.schedule}</p>}
               {g.contact && <p>Kontak: {g.contact}</p>}
             </div>

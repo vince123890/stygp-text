@@ -31,30 +31,30 @@ export default async function ProfilPage() {
         <div className="space-y-10 lg:col-span-2">
           {profile.about_saint && (
             <div>
-              <h2 className="font-display text-xl text-parish-900">Tentang Santo Pelindung</h2>
+              <h2 className="font-display text-xl text-parish-50">Tentang Santo Pelindung</h2>
               <RichTextContent
                 html={profile.about_saint}
-                className="mt-4 text-base text-parish-800/90"
+                className="mt-4 text-base text-parish-100"
               />
             </div>
           )}
 
           {profile.vision && (
             <div>
-              <h2 className="font-display text-xl text-parish-900">Visi</h2>
+              <h2 className="font-display text-xl text-parish-50">Visi</h2>
               <RichTextContent
                 html={profile.vision}
-                className="mt-4 text-base text-parish-800/90"
+                className="mt-4 text-base text-parish-100"
               />
             </div>
           )}
 
           {profile.mission && (
             <div>
-              <h2 className="font-display text-xl text-parish-900">Misi</h2>
+              <h2 className="font-display text-xl text-parish-50">Misi</h2>
               <RichTextContent
                 html={profile.mission}
-                className="mt-4 text-base text-parish-800/90"
+                className="mt-4 text-base text-parish-100"
               />
             </div>
           )}
@@ -73,28 +73,28 @@ export default async function ProfilPage() {
         </div>
 
         <Card className="h-fit space-y-4 p-6">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-gold-600">
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-gold-500">
             Kontak & Alamat
           </h3>
-          <div className="flex items-start gap-2 text-sm text-parish-800">
-            <MapPin size={16} className="mt-0.5 shrink-0 text-parish-500" />
+          <div className="flex items-start gap-2 text-sm text-parish-100">
+            <MapPin size={16} className="mt-0.5 shrink-0 text-parish-300" />
             <RichTextContent html={profile.address} />
           </div>
           {profile.phone1 && (
-            <p className="flex items-center gap-2 text-sm text-parish-800">
-              <Phone size={16} className="shrink-0 text-parish-500" />
+            <p className="flex items-center gap-2 text-sm text-parish-100">
+              <Phone size={16} className="shrink-0 text-parish-300" />
               {profile.phone1}
             </p>
           )}
           {profile.email && (
-            <p className="flex items-center gap-2 text-sm text-parish-800">
-              <Mail size={16} className="shrink-0 text-parish-500" />
+            <p className="flex items-center gap-2 text-sm text-parish-100">
+              <Mail size={16} className="shrink-0 text-parish-300" />
               {profile.email}
             </p>
           )}
           {profile.office_hours && (
-            <div className="flex items-start gap-2 text-sm text-parish-800">
-              <Clock size={16} className="mt-0.5 shrink-0 text-parish-500" />
+            <div className="flex items-start gap-2 text-sm text-parish-100">
+              <Clock size={16} className="mt-0.5 shrink-0 text-parish-300" />
               <RichTextContent html={profile.office_hours} />
             </div>
           )}
@@ -105,7 +105,7 @@ export default async function ProfilPage() {
               href="https://www.google.com/maps?q=-7.2703455,112.812843"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-parish-600 hover:text-parish-700"
+              className="inline-flex items-center gap-1.5 text-sm text-gold-400 transition-colors hover:text-gold-500"
             >
               Buka di Google Maps
               <ExternalLink size={13} />

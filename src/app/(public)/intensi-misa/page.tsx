@@ -28,8 +28,8 @@ export default async function IntensiMisaPage() {
       <div className="mt-10 space-y-6">
         {info.contact_wa && (
           <Card className="flex items-center gap-3 p-5">
-            <Phone size={18} className="text-parish-500" />
-            <span className="text-sm text-parish-800">
+            <Phone size={18} className="text-parish-300" />
+            <span className="text-sm text-parish-100">
               Hubungi <strong>{info.contact_wa}</strong> untuk menyampaikan intensi misa.
             </span>
           </Card>
@@ -37,60 +37,60 @@ export default async function IntensiMisaPage() {
 
         {info.format_info && (
           <div>
-            <h2 className="font-display text-lg text-parish-900">Format Intensi</h2>
+            <h2 className="font-display text-lg text-parish-50">Format Intensi</h2>
             <RichTextContent
               html={info.format_info}
-              className="mt-3 text-sm text-parish-800/90"
+              className="mt-3 text-sm text-parish-100"
             />
           </div>
         )}
 
         {info.deadline_info && (
           <div>
-            <h2 className="font-display text-lg text-parish-900">Batas Penyampaian</h2>
+            <h2 className="font-display text-lg text-parish-50">Batas Penyampaian</h2>
             <RichTextContent
               html={info.deadline_info}
-              className="mt-3 text-sm text-parish-800/90"
+              className="mt-3 text-sm text-parish-100"
             />
           </div>
         )}
 
         {info.offering_info && (
           <div>
-            <h2 className="font-display text-lg text-parish-900">Persembahan</h2>
+            <h2 className="font-display text-lg text-parish-50">Persembahan</h2>
             <RichTextContent
               html={info.offering_info}
-              className="mt-3 text-sm text-parish-800/90"
+              className="mt-3 text-sm text-parish-100"
             />
           </div>
         )}
 
         <Card className="p-5">
-          <h2 className="flex items-center gap-2 font-display text-lg text-parish-900">
-            <Landmark size={18} className="text-parish-500" />
+          <h2 className="flex items-center gap-2 font-display text-lg text-parish-50">
+            <Landmark size={18} className="text-parish-300" />
             Rekening Persembahan
           </h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             {info.church_account_number && (
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-gold-600">
+                <p className="text-xs font-semibold uppercase tracking-wide text-gold-500">
                   Persembahan Gereja
                 </p>
-                <p className="mt-1 text-sm text-parish-800">
+                <p className="mt-1 text-sm text-parish-100">
                   {info.church_bank_name} — {info.church_account_number}
                 </p>
-                <p className="text-sm text-parish-700/70">a.n. {info.church_account_name}</p>
+                <p className="text-sm text-parish-200">a.n. {info.church_account_name}</p>
               </div>
             )}
             {info.social_account_number && (
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-gold-600">
+                <p className="text-xs font-semibold uppercase tracking-wide text-gold-500">
                   Karya Sosial
                 </p>
-                <p className="mt-1 text-sm text-parish-800">
+                <p className="mt-1 text-sm text-parish-100">
                   {info.social_bank_name} — {info.social_account_number}
                 </p>
-                <p className="text-sm text-parish-700/70">a.n. {info.social_account_name}</p>
+                <p className="text-sm text-parish-200">a.n. {info.social_account_name}</p>
               </div>
             )}
           </div>

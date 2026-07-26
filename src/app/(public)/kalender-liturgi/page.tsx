@@ -34,7 +34,7 @@ export default async function KalenderLiturgiPage() {
 
       {todayDay && (
         <div
-          className={`mt-10 rounded-2xl p-6 shadow-[0_2px_20px_-6px_rgba(28,60,45,0.2)] sm:p-8 ${LITURGICAL_COLOR_STYLES[todayDay.liturgical_color].solid}`}
+          className={`mt-10 rounded-[2px] p-6 shadow-[0_2px_20px_-6px_rgba(28,60,45,0.2)] sm:p-8 ${LITURGICAL_COLOR_STYLES[todayDay.liturgical_color].solid}`}
         >
           <p
             className={`text-xs font-semibold uppercase tracking-wide ${LITURGICAL_COLOR_STYLES[todayDay.liturgical_color].solidText} opacity-80`}
@@ -92,22 +92,22 @@ export default async function KalenderLiturgiPage() {
 
       {rest.length > 0 && (
         <div className="mt-12">
-          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-gold-600">
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-gold-500">
             Hari-Hari Mendatang
           </h3>
-          <Card className="divide-y divide-parish-100 p-0">
+          <Card className="divide-y divide-[var(--hairline)] p-0">
             {rest.map((day) => (
               <div key={day.calendar_date} className="flex items-center gap-4 p-4">
                 <LiturgicalDateBadge date={day.calendar_date} color={day.liturgical_color} />
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs font-medium uppercase tracking-wide text-parish-500">
+                  <p className="text-xs font-medium uppercase tracking-wide text-parish-300">
                     {formatDate(day.calendar_date)}
                   </p>
-                  <p className="mt-0.5 font-display text-base text-parish-900">
+                  <p className="mt-0.5 font-display text-base text-parish-50">
                     {day.celebration_name}
                   </p>
                   {day.rank && (
-                    <p className="mt-1 text-sm text-parish-700/70">{day.rank}</p>
+                    <p className="mt-1 text-sm text-parish-200">{day.rank}</p>
                   )}
                 </div>
               </div>
@@ -116,13 +116,13 @@ export default async function KalenderLiturgiPage() {
         </div>
       )}
 
-      <p className="mt-8 text-xs text-parish-700/60">
+      <p className="mt-8 text-xs text-parish-200/60">
         Referensi bacaan harian bersumber dari{" "}
         <a
           href="https://www.imankatolik.or.id"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline hover:text-parish-700"
+          className="underline hover:text-parish-200"
         >
           imankatolik.or.id
         </a>
