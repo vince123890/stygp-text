@@ -14,7 +14,7 @@ export function CategoryFilter({
       <Link
         href="/artikel"
         className={cn(
-          "rounded-[2px] border px-4 py-1.5 text-[13px] transition-colors",
+          "inline-flex min-h-[44px] items-center rounded-[2px] border px-4 text-[13px] transition-colors",
           !activeSlug
             ? "border-gold-500 bg-gold-500 text-parish-900"
             : "border-[var(--hairline-strong)] text-parish-200 hover:border-gold-400 hover:text-gold-400"
@@ -27,7 +27,7 @@ export function CategoryFilter({
           key={cat.id}
           href={`/artikel?category=${cat.slug}`}
           className={cn(
-            "rounded-[2px] border px-4 py-1.5 text-[13px] transition-colors",
+            "inline-flex min-h-[44px] items-center rounded-[2px] border px-4 text-[13px] transition-colors",
             activeSlug === cat.slug
               ? "border-gold-500 bg-gold-500 text-parish-900"
               : "border-[var(--hairline-strong)] text-parish-200 hover:border-gold-400 hover:text-gold-400"

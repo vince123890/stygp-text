@@ -55,8 +55,18 @@ export async function getLatestArticles(limit = 6): Promise<Article[]> {
   return data ?? [];
 }
 
+/**
+ * Melindungi input pencarian: `%` dan `_` adalah wildcard pada ilike, dan
+ * koma memisahkan argumen di dalam `.or(...)` PostgREST. Tanpa ini, mengetik
+ * "%" akan mencocokkan semua baris dan koma bisa merusak filternya.
+ */
+function escapeSearchTerm(raw: string): string {
+  return raw.replace(/[\\%_,()]/g, (c) => `\\${c}`);
+}
+
 export async function getArticles(options?: {
   categorySlug?: string;
+  search?: string;
   page?: number;
   pageSize?: number;
 }): Promise<{ articles: Article[]; total: number }> {
@@ -71,6 +81,12 @@ export async function getArticles(options?: {
     .select("*, category:categories(*)", { count: "exact" })
     .order("published_at", { ascending: false })
     .range(from, to);
+
+  const search = options?.search?.trim();
+  if (search) {
+    const term = escapeSearchTerm(search);
+    query = query.or(`title.ilike.%${term}%,content.ilike.%${term}%`);
+  }
 
   if (options?.categorySlug) {
     const { data: category } = await supabase
@@ -129,14 +145,23 @@ export async function getLatestAnnouncements(limit = 4): Promise<Announcement[]>
   return data ?? [];
 }
 
-export async function getAnnouncements(): Promise<Announcement[]> {
+export async function getAnnouncements(options?: {
+  search?: string;
+}): Promise<Announcement[]> {
   const supabase = createClient();
-  const { data, error } = await supabase
+  let query = supabase
     .from("announcements")
     .select("*")
     .order("is_priority", { ascending: false })
     .order("published_at", { ascending: false });
 
+  const search = options?.search?.trim();
+  if (search) {
+    const term = escapeSearchTerm(search);
+    query = query.or(`title.ilike.%${term}%,content.ilike.%${term}%`);
+  }
+
+  const { data, error } = await query;
   if (error) throw error;
   return data ?? [];
 }

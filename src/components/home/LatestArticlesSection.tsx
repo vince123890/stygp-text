@@ -22,7 +22,7 @@ export function LatestArticlesSection({ articles }: { articles: Article[] }) {
 
       <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
         {articles.map((article, i) => (
-          <Reveal key={article.id} delay={(i % 3) * 0.12}>
+          <Reveal key={article.id} delay={(i % 3) * 0.06}>
             <ArticleCard article={article} />
           </Reveal>
         ))}

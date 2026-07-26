@@ -43,7 +43,7 @@ export function ArticleCard({ article }: { article: Article }) {
           <p className="mt-2.5 line-clamp-2 flex-1 text-sm leading-relaxed text-parish-200">
             {stripHtmlExcerpt(article.content)}
           </p>
-          <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.1em] text-parish-300">
+          <p className="mt-5 font-mono text-[12.5px] uppercase tracking-[0.1em] text-parish-300">
             {formatDate(article.published_at)}
           </p>
         </div>

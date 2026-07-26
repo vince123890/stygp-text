@@ -73,7 +73,7 @@ export default async function IntensiMisaPage() {
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
             {info.church_account_number && (
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-gold-500">
+                <p className="text-sm font-semibold uppercase tracking-wide text-gold-500">
                   Persembahan Gereja
                 </p>
                 <p className="mt-1 text-sm text-parish-100">
@@ -84,7 +84,7 @@ export default async function IntensiMisaPage() {
             )}
             {info.social_account_number && (
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-gold-500">
+                <p className="text-sm font-semibold uppercase tracking-wide text-gold-500">
                   Karya Sosial
                 </p>
                 <p className="mt-1 text-sm text-parish-100">

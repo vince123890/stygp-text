@@ -113,29 +113,36 @@ export function HeroSlider({ slides }: { slides: HeroSlide[] }) {
           <button
             onClick={prev}
             aria-label="Slide sebelumnya"
-            className="absolute left-4 top-1/2 z-[3] hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-[2px] border border-[var(--hairline-strong)] text-parish-50 backdrop-blur transition-colors hover:border-gold-400 hover:text-gold-400 sm:flex"
+            className="absolute left-4 top-1/2 z-[3] hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-[2px] border border-[var(--hairline-strong)] text-parish-50 backdrop-blur transition-colors hover:border-gold-400 hover:text-gold-400 sm:flex"
           >
             <ChevronLeft size={20} />
           </button>
           <button
             onClick={next}
             aria-label="Slide berikutnya"
-            className="absolute right-4 top-1/2 z-[3] hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-[2px] border border-[var(--hairline-strong)] text-parish-50 backdrop-blur transition-colors hover:border-gold-400 hover:text-gold-400 sm:flex"
+            className="absolute right-4 top-1/2 z-[3] hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-[2px] border border-[var(--hairline-strong)] text-parish-50 backdrop-blur transition-colors hover:border-gold-400 hover:text-gold-400 sm:flex"
           >
             <ChevronRight size={20} />
           </button>
 
-          <div className="absolute bottom-8 left-1/2 z-[3] flex -translate-x-1/2 gap-2">
+          {/* Garisnya tetap tipis, tapi area tap-nya 44px tinggi supaya
+              mudah dikenai jari — pedoman touch target minimum. */}
+          <div className="absolute bottom-2 left-1/2 z-[3] flex -translate-x-1/2 items-center gap-1">
             {slides.map((slide, i) => (
               <button
                 key={slide.id}
                 aria-label={`Ke slide ${i + 1}`}
+                aria-current={i === active}
                 onClick={() => setActive(i)}
-                className={cn(
-                  "h-[3px] transition-all duration-300",
-                  i === active ? "w-10 bg-gold-500" : "w-3 bg-parish-50/30"
-                )}
-              />
+                className="flex h-11 items-center px-1.5"
+              >
+                <span
+                  className={cn(
+                    "block h-[3px] transition-all duration-300",
+                    i === active ? "w-10 bg-gold-500" : "w-3 bg-parish-50/40"
+                  )}
+                />
+              </button>
             ))}
           </div>
         </>

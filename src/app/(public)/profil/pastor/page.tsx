@@ -56,7 +56,7 @@ export default async function PastorPage() {
           </h2>
           <div className="grid gap-5">
             {active.map((p, i) => (
-              <PastorCard key={p.id} pastor={p} delay={i * 0.1} />
+              <PastorCard key={p.id} pastor={p} delay={i * 0.06} />
             ))}
           </div>
         </div>
@@ -68,7 +68,7 @@ export default async function PastorPage() {
             </h2>
             <div className="grid gap-5">
               {past.map((p, i) => (
-                <PastorCard key={p.id} pastor={p} delay={(i % 4) * 0.08} />
+                <PastorCard key={p.id} pastor={p} delay={(i % 4) * 0.05} />
               ))}
             </div>
           </div>

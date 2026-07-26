@@ -13,7 +13,9 @@
   --color-parish-50: #ede6d6;  /* parchment */
   --color-parish-100: #d5cdb9;
   --color-parish-200: #a6a190; /* stone */
-  --color-parish-300: #7d8378;
+  /* 5.68:1 di atas ink, 4.99:1 di atas ink-2 — lolos WCAG AA teks normal.
+     Dipakai untuk tanggal/metadata, jadi kontrasnya tidak boleh turun. */
+  --color-parish-300: #949b8d;
   --color-parish-400: #5c6a62;
   --color-parish-500: #46564e;
   --color-parish-600: #33443c;
@@ -108,27 +110,30 @@ button:focus-visible {
    template. Dikendalikan komponen <Reveal> (IntersectionObserver).
    ============================================================ */
 
-/* initial={{ opacity: 0, y: 30 }} */
+/* Preset "Subtle" (ui-ux-pro-max motion.csv): geser 8–16px, 300–400ms,
+   power1.out. Jarak yang lebih pendek membuatnya terbaca sebagai fade, bukan
+   slide — lebih tenang dan terasa lebih cepat. cubic-bezier di bawah adalah
+   padanan CSS dari power1.out GSAP. */
 [data-reveal] {
   opacity: 0;
   transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
+    opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 [data-reveal="up"] {
-  transform: translateY(30px);
+  transform: translateY(16px);
 }
 [data-reveal="down"] {
-  transform: translateY(-20px);
+  transform: translateY(-12px);
 }
 [data-reveal="left"] {
-  transform: translateX(-28px);
+  transform: translateX(-16px);
 }
 [data-reveal="right"] {
-  transform: translateX(28px);
+  transform: translateX(16px);
 }
 [data-reveal="scale"] {
-  transform: scale(0.94);
+  transform: scale(0.97);
 }
 [data-reveal="fade"] {
   transform: none;

@@ -44,7 +44,7 @@ export default async function KalenderLiturgiPage() {
               <div key={day.calendar_date} className="flex items-center gap-4 p-4">
                 <LiturgicalDateBadge date={day.calendar_date} color={day.liturgical_color} />
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs font-medium uppercase tracking-wide text-parish-300">
+                  <p className="text-sm font-medium uppercase tracking-wide text-parish-300">
                     {formatDate(day.calendar_date)}
                   </p>
                   <p className="mt-0.5 font-display text-base text-parish-50">
@@ -60,7 +60,7 @@ export default async function KalenderLiturgiPage() {
         </div>
       )}
 
-      <p className="mt-8 text-xs text-parish-200/60">
+      <p className="mt-8 text-sm text-parish-200">
         Referensi bacaan harian bersumber dari{" "}
         <a
           href="https://www.imankatolik.or.id"

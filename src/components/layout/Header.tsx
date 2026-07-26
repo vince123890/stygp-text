@@ -121,7 +121,7 @@ export function Header() {
         </div>
 
         <button
-          className="flex h-9 w-9 items-center justify-center rounded-[2px] text-parish-50 md:hidden"
+          className="-mr-2 flex h-11 w-11 items-center justify-center rounded-[2px] text-parish-50 md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Buka menu"
         >
@@ -147,7 +147,7 @@ export function Header() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-[2px] px-3 py-2.5 text-sm text-parish-100 transition-colors hover:bg-white/5 hover:text-gold-400"
+                    className="block rounded-[2px] px-3 py-3 text-sm text-parish-100 transition-colors hover:bg-white/5 hover:text-gold-400"
                   >
                     {item.label}
                   </Link>
@@ -158,7 +158,7 @@ export function Header() {
                 key={entry.href}
                 href={entry.href}
                 onClick={() => setOpen(false)}
-                className="rounded-[2px] px-3 py-2.5 text-sm text-parish-100 transition-colors hover:bg-white/5 hover:text-gold-400"
+                className="rounded-[2px] px-3 py-3 text-sm text-parish-100 transition-colors hover:bg-white/5 hover:text-gold-400"
               >
                 {entry.label}
               </Link>

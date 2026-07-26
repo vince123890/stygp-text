@@ -48,7 +48,7 @@ export default async function AnnouncementDetailPage({
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <Badge>{announcement.category}</Badge>
         {announcement.is_priority && (
-          <span className="flex items-center gap-1 text-xs font-semibold text-gold-500">
+          <span className="flex items-center gap-1 text-sm font-semibold text-gold-500">
             <Megaphone size={12} />
             Penting
           </span>

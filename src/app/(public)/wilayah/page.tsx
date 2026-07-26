@@ -32,9 +32,9 @@ export default async function WilayahPage() {
                 <div key={n.id} className="flex items-center justify-between gap-2 py-2.5">
                   <div>
                     <p className="text-sm font-medium text-parish-100">{n.name}</p>
-                    <p className="text-xs text-parish-200">Ketua: {n.chairman}</p>
+                    <p className="text-sm text-parish-200">Ketua: {n.chairman}</p>
                   </div>
-                  <span className="flex items-center gap-1 text-xs text-parish-300">
+                  <span className="flex items-center gap-1 text-sm text-parish-300">
                     <Users size={12} />
                     {n.family_count} KK
                   </span>

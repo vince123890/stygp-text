@@ -26,7 +26,7 @@ export function AnnouncementSection({ announcements }: { announcements: Announce
 
       <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
         {announcements.map((a, i) => (
-          <Reveal key={a.id} delay={i * 0.12}>
+          <Reveal key={a.id} delay={i * 0.06}>
             <Link href={`/pengumuman/${a.slug}`} className="group block h-full">
               <Card className="h-full p-6">
                 <div className="flex flex-wrap items-center gap-2">
@@ -44,7 +44,7 @@ export function AnnouncementSection({ announcements }: { announcements: Announce
                 <p className="mt-2.5 line-clamp-2 text-sm leading-relaxed text-parish-200">
                   {stripHtmlExcerpt(a.content)}
                 </p>
-                <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.1em] text-parish-300">
+                <p className="mt-5 font-mono text-[12.5px] uppercase tracking-[0.1em] text-parish-300">
                   {formatDate(a.published_at)}
                 </p>
               </Card>

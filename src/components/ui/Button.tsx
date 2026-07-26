@@ -16,10 +16,12 @@ const variantClasses: Record<Variant, string> = {
     "border-transparent text-parish-200 hover:bg-white/5 hover:text-gold-400",
 };
 
+// min-h-11 (44px) memenuhi ukuran target sentuh minimum tanpa mengubah
+// padding, jadi proporsi visualnya tetap sama.
 const sizeClasses: Record<Size, string> = {
-  sm: "px-4 py-2 text-[13px]",
-  md: "px-6 py-3 text-sm",
-  lg: "px-7 py-3.5 text-base",
+  sm: "min-h-11 px-4 py-2 text-[13px]",
+  md: "min-h-11 px-6 py-3 text-sm",
+  lg: "min-h-12 px-7 py-3.5 text-base",
 };
 
 interface ButtonProps {

@@ -21,14 +21,14 @@ export function LiturgicalWeekList({ days }: { days: EffectiveLiturgicalDay[] })
           <div key={day.calendar_date} className="flex items-start gap-4 p-5">
             <span className={`mt-1 h-8 w-2 shrink-0 rounded-full ${color.solid}`} />
             <div>
-              <p className="text-xs font-medium uppercase tracking-wide text-parish-300">
+              <p className="text-sm font-medium uppercase tracking-wide text-parish-300">
                 {formatDate(day.calendar_date)}
               </p>
               <p className="mt-0.5 font-display text-base text-parish-50">
                 {day.celebration_name}
               </p>
               {day.rank && (
-                <p className="mt-0.5 text-xs text-parish-200/60">{day.rank}</p>
+                <p className="mt-0.5 text-sm text-parish-200">{day.rank}</p>
               )}
               {readingLines.length > 0 && (
                 <p className="mt-2 text-sm text-parish-200">
