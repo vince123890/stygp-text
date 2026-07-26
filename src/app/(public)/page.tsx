@@ -1,11 +1,10 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { RosetteDivider } from "@/components/ui/Ornaments";
 import { HeroSlider } from "@/components/home/HeroSlider";
 import { MassScheduleSection } from "@/components/home/MassScheduleSection";
 import { LatestArticlesSection } from "@/components/home/LatestArticlesSection";
 import { AnnouncementSection } from "@/components/home/AnnouncementSection";
-import { LiturgicalTodayCard } from "@/components/home/LiturgicalTodayCard";
+import { LiturgicalTodayBanner } from "@/components/liturgical/LiturgicalTodayBanner";
 import {
   getHeroSlides,
   getAllMassSchedules,
@@ -35,17 +34,12 @@ export default async function HomePage() {
 
       <Container className="space-y-24 py-24">
         {liturgicalDay && (
-          <Reveal className="mx-auto max-w-md" direction="scale">
-            <LiturgicalTodayCard day={liturgicalDay} />
+          <Reveal>
+            <LiturgicalTodayBanner day={liturgicalDay} href="/kalender-liturgi" />
           </Reveal>
         )}
 
         <AnnouncementSection announcements={announcements} />
-      </Container>
-
-      <RosetteDivider />
-
-      <Container className="pb-24">
         <LatestArticlesSection articles={articles} />
       </Container>
     </div>

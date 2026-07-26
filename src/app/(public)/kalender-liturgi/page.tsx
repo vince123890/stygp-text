@@ -2,8 +2,8 @@ import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { LiturgicalDateBadge } from "@/components/liturgical/LiturgicalDateBadge";
+import { LiturgicalTodayBanner } from "@/components/liturgical/LiturgicalTodayBanner";
 import { formatDate, jakartaDateString } from "@/lib/format";
-import { LITURGICAL_COLOR_STYLES } from "@/lib/liturgical-color";
 import { getEffectiveToday, getEffectiveRange } from "@/lib/liturgical-effective";
 import type { Metadata } from "next";
 
@@ -32,63 +32,7 @@ export default async function KalenderLiturgiPage() {
         description="Perayaan liturgi, warna liturgi, dan bacaan harian."
       />
 
-      {todayDay && (
-        <div
-          className={`mt-10 rounded-[2px] p-6 shadow-[0_2px_20px_-6px_rgba(28,60,45,0.2)] sm:p-8 ${LITURGICAL_COLOR_STYLES[todayDay.liturgical_color].solid}`}
-        >
-          <p
-            className={`text-xs font-semibold uppercase tracking-wide ${LITURGICAL_COLOR_STYLES[todayDay.liturgical_color].solidText} opacity-80`}
-          >
-            Hari Ini — {formatDate(todayDay.calendar_date)}
-          </p>
-          <h2
-            className={`mt-2 font-display text-2xl sm:text-3xl ${LITURGICAL_COLOR_STYLES[todayDay.liturgical_color].solidText}`}
-          >
-            {todayDay.celebration_name}
-          </h2>
-          <p
-            className={`mt-2 text-sm font-medium ${LITURGICAL_COLOR_STYLES[todayDay.liturgical_color].solidText} opacity-90`}
-          >
-            Warna Liturgi: {LITURGICAL_COLOR_STYLES[todayDay.liturgical_color].label}
-            {todayDay.rank && ` · ${todayDay.rank}`}
-          </p>
-
-          {Object.values(todayDay.readings).some(Boolean) && (
-            <div
-              className={`mt-5 space-y-1.5 border-t border-black/10 pt-5 text-sm ${LITURGICAL_COLOR_STYLES[todayDay.liturgical_color].solidText} opacity-90`}
-            >
-              {todayDay.readings.first_reading && (
-                <p>
-                  <span className="font-semibold">Bacaan I:</span>{" "}
-                  {todayDay.readings.first_reading}
-                </p>
-              )}
-              {todayDay.readings.psalm && (
-                <p>
-                  <span className="font-semibold">Mazmur:</span> {todayDay.readings.psalm}
-                </p>
-              )}
-              {todayDay.readings.second_reading && (
-                <p>
-                  <span className="font-semibold">Bacaan II:</span>{" "}
-                  {todayDay.readings.second_reading}
-                </p>
-              )}
-              {todayDay.readings.gospel && (
-                <p>
-                  <span className="font-semibold">Injil:</span> {todayDay.readings.gospel}
-                </p>
-              )}
-              {todayDay.readings.office_reading && (
-                <p>
-                  <span className="font-semibold">Bacaan Ofisi (BcO):</span>{" "}
-                  {todayDay.readings.office_reading}
-                </p>
-              )}
-            </div>
-          )}
-        </div>
-      )}
+      <LiturgicalTodayBanner day={todayDay} className="mt-10" />
 
       {rest.length > 0 && (
         <div className="mt-12">
